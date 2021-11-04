@@ -1,6 +1,11 @@
-class Cursos (var nomeCurso : String?, var serie : Int){
-    var professor : String? = null
-    val listaEstudantesMatriculados = mutableListOf<Estudante>()
+package cursos
+
+import Estudante
+import java.lang.Exception
+
+class Cursos (private var nomeCurso : String?,private var professor : String?,private var serie : Int){
+
+    private val listaEstudantesMatriculados = mutableListOf<Estudante>()
 
 
     fun matricularEstudante(estudante: Estudante){
@@ -12,11 +17,7 @@ class Cursos (var nomeCurso : String?, var serie : Int){
         for (estudante in listaDeEstudantes ){
             listaEstudantesMatriculados.add(estudante)
         }
-
-
     }
-
-
 
     fun descadastrarAluno(estudante: Estudante){
         println("Você realmente deseja remover o estudante abaixo? Digite Sim para" +
@@ -30,9 +31,6 @@ class Cursos (var nomeCurso : String?, var serie : Int){
         }else{
             println("Estudante não removido")
         }
-
-
-
 
     }
 
@@ -49,6 +47,14 @@ class Cursos (var nomeCurso : String?, var serie : Int){
             }
         }
         return melhorMedia
+    }
+
+    fun verificarAluno(estudante: Estudante){
+        if (listaEstudantesMatriculados.contains(estudante)){
+            println("Estudande está na lista")
+        }else{
+            throw Exception("O estudante não existe")
+        }
     }
 
 

@@ -1,8 +1,8 @@
-class Estudante (var primeiroNome :String?,  var ultimoNome: String?) {
+class Estudante (private var primeiroNome :String?, private var ultimoNome: String?) {
 
-    var codigoAluno = 0
+    private var codigoAluno = 0
     var mediaAluno = 0.0
-    var ano = 0
+    private var ano = 0
     val foiAprovado : Boolean
         get(){
             if (mediaAluno >=60.0) {
